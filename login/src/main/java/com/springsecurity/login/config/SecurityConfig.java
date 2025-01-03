@@ -12,17 +12,63 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-            // kräver inloggning 
-            // just nu kommer man få ett whitelabel error när man försöker nå /myorder
-            // med "Acces denied", men det är bra då vet vi att det funkar som det ska
-            .requestMatchers("/myorder").authenticated() 
-            // alla requests tillåtan,ingen inloggning krävs på någon endpoint(tillfällig)
-            .anyRequest().permitAll()
+                // kräver ingen inloggning
+                .requestMatchers("/", "/register", "/product/**").permitAll()
+                // kräver inloggning 
+                .requestMatchers("/myorder").authenticated() 
+                // alla requests kräver inloggning
+                .anyRequest().permitAll()
+            )
+            //här ska det finnas en inställning för att omdirigera användaren till startsidan(index) om åtkomst nekas
+
+            // här är inställningar för login/logout
+            .formLogin(form -> form
+                .defaultSuccessUrl("/")
+                .permitAll()
+            )
+            .logout(logout -> logout
+                .logoutSuccessUrl("/")
+                .permitAll()
+            );
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            // .exceptionHandling(exception -> exception
+            //     .accessDeniedHandler((request, response, accessDeniedException) -> {
+            //         response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
+            //         response.setHeader("Location", "/");
+            //     })
+            // );
+
 
             
-            );
-        
-            return http.build();
+            // vid nekad åtkomst skickas användaren till startsidan(index)
+            // .exceptionHandling(exception -> exception
+            // .accessDeniedHandler((request, response, accessDeniedException) -> {
+            //     System.out.println("Torsten Flink");
+            //     response.sendRedirect("/");
+            //     })
+            // );
+            
+            
+            
+            
+        return http.build();
                 
     }
 }
