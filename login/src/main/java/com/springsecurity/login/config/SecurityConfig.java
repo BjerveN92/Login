@@ -13,14 +13,17 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
                 // kräver ingen inloggning
-                .requestMatchers("/", "/register", "/product/**").permitAll()
+                .requestMatchers( "/register", "/product/**", "/").permitAll()
                 // kräver inloggning 
                 .requestMatchers("/myorder").authenticated() 
-                // alla requests kräver inloggning
+                // resten av alla requests är tillgängligt för alla (i detta fall bara logga in/logga ut)
                 .anyRequest().permitAll()
             )
             //här ska det finnas en inställning för att omdirigera användaren till startsidan(index) om åtkomst nekas
-
+            .exceptionHandling(exception -> exception
+                .authenticationEntryPoint((httpServletRequest, httpServletResponse, authenticationException) -> 
+                    httpServletResponse.sendRedirect("/"))
+                )
             // här är inställningar för login/logout
             .formLogin(form -> form
                 .defaultSuccessUrl("/")
