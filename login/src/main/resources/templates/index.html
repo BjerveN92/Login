@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,13 @@
 </head>
 <body>
     
-    <header>Logotype + en navbar med Login/Logout samt registrera ny användare</header>
+    <header>
+        <h3>Logotype + en navbar med Login/Logout samt registrera ny användare</h3>
+        <nav>
+            <a th:href="@{/login}"><button>Logga in</button></a>
+            <a th:href="@{/logout}"><button>Logga ut</button></a>
+        </nav>
+    </header>
     
     <div>Här ska det vara 3 produkter
         det ska gå att klicka på en produkt 
