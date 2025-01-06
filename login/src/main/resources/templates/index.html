@@ -10,8 +10,9 @@
     <header>
         <h3>Logotype + en navbar med Login/Logout samt registrera ny användare</h3>
         <nav>
-            <a th:href="@{/login}"><button>Logga in</button></a>
-            <a th:href="@{/logout}"><button>Logga ut</button></a>
+            <a th:href="@{/login}" method="get"><button>Logga in</button></a>
+            
+            <a th:href="@{/logout}" method="post"><button>Logga ut</button></a>
         </nav>
     </header>
     
