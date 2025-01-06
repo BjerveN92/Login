@@ -13,11 +13,9 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
                 // kräver ingen inloggning
-                .requestMatchers( "/", "/register", "/product/**").permitAll()
-                // kräver inloggning 
-                .requestMatchers("/myorder").authenticated() 
-                // resten av alla requests är tillgängligt för alla 
-                .anyRequest().permitAll()
+                .requestMatchers( "/", "/register", "/product/**", "/myorder").permitAll()
+                
+                .anyRequest().authenticated()
             )
             
             // här är inställningar för login/logout
