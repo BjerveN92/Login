@@ -13,7 +13,6 @@
             <a th:href="@{/login}" method="get"><button>Logga in</button></a>
             
             <a th:href="@{/logout}" method="post"><button>Logga ut</button></a>
-
             
         </nav>
     </header>
@@ -22,10 +21,9 @@
         <h1>produkter</h1>
         <div th:each="product : ${products}">
             <h2 th:text="${product.name}"></h2>
-            <img src="${product.image}" alt="product image">
-            <p th:text="${product.price} + SEK"></p>
+            <img th:src="${product.imageUrl}" alt="Produktbild">
+            <p th:text="${product.price} +' SEK'"></p>
         </div>
-        
     </div>
     
 </body>

@@ -33,7 +33,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
                 // kräver ingen inloggning
-                .requestMatchers( "/", "/register", "/product/**", "/myorder").permitAll()
+                .requestMatchers( "/", "/register", "/product/**", "/myorder", "/images/**").permitAll()
                 .anyRequest().authenticated()
             )
             // här är inställningar för login/logout

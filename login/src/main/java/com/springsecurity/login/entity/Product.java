@@ -1,11 +1,14 @@
 package com.springsecurity.login.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "product")
 public class Product {
 
     // detta är en primärnyckel i form av ett automatiskt ID
@@ -18,6 +21,7 @@ public class Product {
     private String description;
     private double price;
     // bilder sparas lokalt i detta fall men styrs av en URL i databasen
+    @Column(name = "image_url")
     private String imageUrl;
     
     // getters & setters 
