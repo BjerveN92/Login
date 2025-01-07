@@ -1,9 +1,10 @@
 package com.springsecurity.login.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.springsecurity.login.entity.User;
@@ -14,14 +15,18 @@ public class UserService implements UserDetailsService {
 
     
     private final UserRepository userRepository;
+    
 
-    @Autowired // här ska en parameter för BCryptPasswordEncoder in...kanske
+    // här ska en parameter för BCryptPasswordEncoder in...kanske
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
         
     }
     // metod för att registrera en användare 
     public User saveUser(User user) {
+        // krypterar lösenordet innan det sparas
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         // användaren läggs till i databasen
         return userRepository.save(user);
     }
