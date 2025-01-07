@@ -3,6 +3,7 @@ package com.springsecurity.login.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springsecurity.login.entity.Product;
@@ -10,7 +11,7 @@ import com.springsecurity.login.repository.ProductRepository;
 
 @Service
 public class ProductService {
-
+    @Autowired
     private final ProductRepository productRepository;
 
     // constructor

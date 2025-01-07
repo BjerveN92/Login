@@ -18,9 +18,14 @@
         </nav>
     </header>
     
-    <div>Här ska det vara 3 produkter
-        det ska gå att klicka på en produkt 
-        och komma till en sida med produktens detaljer
+    <div>
+        <h1>produkter</h1>
+        <div th:each="product : ${products}">
+            <h2 th:text="${product.name}"></h2>
+            <img src="${product.image}" alt="product image">
+            <p th:text="${product.price} + SEK"></p>
+        </div>
+        
     </div>
     
 </body>
