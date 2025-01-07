@@ -1,11 +1,14 @@
 package com.springsecurity.login.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "user")
 public class User {
     
     // detta är en primärnyckel i form av ett automatiskt ID
@@ -14,11 +17,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     // resterande egenskaper för användaren
+    @Column(name = "firstname", nullable=false)
     private String firstname;
+    @Column(name = "lastname", nullable=false)
     private String lastname;
+    @Column(name = "email", unique=true, nullable=false)
     private String email;
+    @Column(name = "username", unique=true, nullable=false)
     private String username;
+    @Column(name = "password", nullable=false)
     private String password;
+
+    // default konstruktor
+    public User() {}
     
     // getters & setters
     
