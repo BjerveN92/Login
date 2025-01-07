@@ -9,9 +9,26 @@
     
     <header>Logotype</header>
     
-    <div>
-        här ska ett formulär finnas för att registrera en ny användare
-    </div>
+    <form th:action="@{/register}" th:object="${user}" method="post">
+
+        <label for="firstname">Förnamn</label>
+        <input type="text" th:field="*{firstname}" id="firstname" placeholder="Förnamn" required>
+
+        <label for="lastname">Efternamn</label>
+        <input type="text" th:field="*{lastname}" id="lastname" placeholder="Efternamn" required>
+
+        <label for="email">E-Mail</label>
+        <input type="email" th:field="*{email}" id="email" placeholder="E-Mail" required>
+
+        <label for="username">Användarnamn</label>
+        <input type="text" th:field="*{username}" id="username" placeholder="Användarnamn" required>
+
+        <label for="password">Lösenord</label>
+        <input type="password" th:field="*{password}" id="password" placeholder="Lösenord" required>
+        
+        <button type="submit">Registrera</button>
+
+    </form>
     
 </body>
 </html>
