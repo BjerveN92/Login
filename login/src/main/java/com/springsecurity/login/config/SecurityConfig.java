@@ -34,7 +34,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 // kräver ingen inloggning
                 .requestMatchers( "/", "/register", "/product/**", "/myorder", "/images/**").permitAll()
-                .anyRequest().authenticated()
+                // .anyRequest().authenticated()
+                .anyRequest().permitAll()
             )
             // här är inställningar för login/logout
             .formLogin(form -> form
@@ -42,9 +43,13 @@ public class SecurityConfig {
                 .permitAll()
             )
             .logout(logout -> logout
+                .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
                 .permitAll()
-            ); 
+            );
+                
+                // .exceptionHandling(exception -> exception
+                // .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)));
         return http.build();
                 
     }
