@@ -5,7 +5,6 @@ import java.security.Principal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springsecurity.login.entity.User;
@@ -28,9 +27,9 @@ public class UserController {
     }
     // registrerar användaren och sparar ner den i databasen
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("user") User user) {
+    public String registerUser(User user) {
         userService.saveUser(user);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
 
