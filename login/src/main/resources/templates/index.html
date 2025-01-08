@@ -11,6 +11,9 @@
     <header class="header" th:fragment="header">
         <h1>FruitMarket</h1>
         <nav class="header-buttons">
+            <a th:href="@{/myorder}" method="get">
+                <button sec:authorize="isAuthenticated()">My Order</button>
+            </a>
             <a th:href="@{/login}" method="get">
                 <button sec:authorize="!isAuthenticated()">Logga in</button>
             </a>
@@ -20,9 +23,7 @@
             <a th:href="@{/register}" method="get">
                 <button>Register</button>
             </a>
-            <a th:href="@{/myorder}" method="get">
-                <button sec:authorize="isAuthenticated()">My Order</button>
-            </a>
+
         </nav>
     </header>
     <!--  -->
@@ -35,7 +36,7 @@
                     <h2 th:text="${product.name}"></h2>
                     <img th:src="${product.imageUrl}" alt="Produktbild" class="small-image">
                     <p th:text="${product.price} +' SEK'"></p>
-                    <a th:href="@{/product/{id}(id=${product.id})}"><button>Mer info</button></a>
+                    <a th:href="@{/product/{id}(id=${product.id})}" class="more-info-button"><button>Mer info</button></a>
                 </div>
             </div>
 

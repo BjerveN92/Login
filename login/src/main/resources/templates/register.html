@@ -9,6 +9,7 @@
 <body>
     <!-- hämtar headern ifrån index -->
     <div th:insert="index :: header"></div>
+
     <div class="register-wrapper">
         <form th:action="@{/register}" th:object="${user}" method="post" class="register-form">
             <h1>Registrera ny användare</h1>
@@ -28,7 +29,7 @@
             <input type="password" th:field="*{password}" id="password" placeholder="Lösenord" required>
             
             <button type="submit" id="register-button">Registrera</button>
-    
+            
         </form>
         <a th:href="@{/}" class="go-back-button"><button>Tillbaka</button></a>
     </div>

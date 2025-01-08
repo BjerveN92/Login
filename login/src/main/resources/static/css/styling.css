@@ -3,8 +3,14 @@
 .header {
     padding: 30px;
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
-    width: 100%;
+    width: 35%;
+    background-color: rosybrown;
+    margin: 0 auto; 
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-bottom: 1%;
 }
 
 .header-buttons {
@@ -13,13 +19,15 @@
     justify-content: space-evenly;
     width: 200px;
 }
-
+/*  */
 .header-buttons button {
     padding: 10px;
     margin: 5px;
     cursor: pointer;
     width: 80px;
     max-height: 80%;
+    background-color: rgb(136, 234, 167);
+    border-radius: 10px;
 }
 /* =============== GOBACK BUTTON =============== */
 .go-back-button {
@@ -36,6 +44,7 @@
     width: 80px;
     max-height: 80%;
     background-color: rgb(255, 157, 0);
+    border-radius: 10px;
 }
 
 /* hoover för header-knappar? */
@@ -57,9 +66,19 @@
 .product-card {
     flex: 0 0 calc(33.333% - 10px); /* Fast bredd (33.333% av raden minus gap) */
     box-sizing: border-box;         /* Inkludera padding och border i bredden */
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
+    border-radius: 10px;
     padding: 10px;
     
+}
+.more-info-button button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    width: 80px;
+    max-height: 80%;
+    background-color: rgb(255, 157, 0);
+    border-radius: 10px;
 }
 
 /* =============== PRODUCT-DETAILS  =============== */
@@ -78,6 +97,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 50%;
+    margin: auto;
     gap: 10px;
 }
 .product-details button {
@@ -88,6 +109,7 @@
     cursor: pointer;
     width: 80px;
     max-height: 80%;
+    border-radius: 10px;
 }
 #product-desc {
     width: 50%;
@@ -95,15 +117,11 @@
 }
 /* =============== REGISTER  =============== */
 .register-wrapper {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     background-color: rgb(255, 255, 255);
-    /* width: 50%; */
     max-width: 30%;
     margin: 0 auto; /* This will centralize the div horizontally */
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
+    border-radius: 10px;
     padding: 10px;
 }
 .register-form {
@@ -123,6 +141,7 @@
     cursor: pointer;
     width: 80px;
     max-height: 80%;
+    border-radius: 10px;
 }
 .register-form input {
     width: 70%;
