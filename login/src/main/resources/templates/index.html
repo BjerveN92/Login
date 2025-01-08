@@ -4,41 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="/css/styling.css">
 </head>
 <body>
     <!-- header med knappar -->
-    <header>
-        <h3>Logotype + en navbar med Login/Logout samt registrera ny användare</h3>
-        <nav>
+    <header class="header">
+        <h1>FruitMarket</h1>
+        <nav class="header-buttons">
             <a th:href="@{/login}" method="get">
                 <button sec:authorize="!isAuthenticated()">Logga in</button>
             </a>
-
             <a th:href="@{/logout}" method="post">
                 <button sec:authorize="isAuthenticated()">Logga ut</button>
             </a>
-            
             <a th:href="@{/register}" method="get">
                 <button>Register</button>
             </a>
-
             <a th:href="@{/myorder}" method="get">
                 <button sec:authorize="isAuthenticated()">My Order</button>
             </a>
-            
         </nav>
     </header>
     <!--  -->
-    <div>
+    <div class="main-content">
         <h1>produkter</h1>
             <!-- product-card -->
-            <div th:each="product : ${products}">
-                <h2 th:text="${product.name}"></h2>
-                <img th:src="${product.imageUrl}" alt="Produktbild">
-                <p th:text="${product.price} +' SEK'"></p>
-                <a th:href="@{/product/{id}(id=${product.id})}"><button>Mer info</button></a>
+            <div class="product-container">     
+                
+                <div th:each="product : ${products}" class="product-card">
+                    <h2 th:text="${product.name}"></h2>
+                    <img th:src="${product.imageUrl}" alt="Produktbild" class="small-image">
+                    <p th:text="${product.price} +' SEK'"></p>
+                    <a th:href="@{/product/{id}(id=${product.id})}"><button>Mer info</button></a>
+                </div>
             </div>
+
     </div>
     
 </body>
