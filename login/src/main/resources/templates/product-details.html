@@ -7,22 +7,23 @@
     <link rel="stylesheet" href="/css/styling.css">
 </head>
 <body>
-    
-    <header>Logotype + en navbar med Login/Logout samt registrera ny användare</header>
+    <!-- hämtar headern ifrån index -->
+    <div th:insert="index :: header"></div>
     
     <div class="product-details-container">
-        
+        <!-- bild -->
         <img th:src="${product.imageUrl}" alt="Produktbild">
-
+        <!-- detaljer -->
         <div class="product-details">
             <h2 th:text="${product.name}"></h2>
-            <p th:text="${product.description}"></p>
+            <p th:text="${product.description}" id="product-desc"></p>
             <p th:text="${product.price} +' SEK'"></p>
 
             <!-- här ska en länk vara "add to cart" men ska bara vara synlig när man är inloggad -->
              <button sec:authorize="isAuthenticated()">Add to cart+</button>
         </div>
     </div>
+    <a th:href="@{/}" class="go-back-button"><button>Tillbaka</button></a>
 
     
 </body>
