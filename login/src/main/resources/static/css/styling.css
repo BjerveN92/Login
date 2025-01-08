@@ -21,7 +21,22 @@
     width: 80px;
     max-height: 80%;
 }
-
+/* =============== GOBACK BUTTON =============== */
+.go-back-button {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+.go-back-button button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    width: 80px;
+    max-height: 80%;
+    background-color: rgb(255, 157, 0);
+}
 
 /* hoover för header-knappar? */
 
@@ -32,7 +47,7 @@
 }
 
 
-.product-container {
+.product-card-container {
     display:flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -47,4 +62,31 @@
     
 }
 
-/* =============== PRODUCT-DETAILS (for index) =============== */
+/* =============== PRODUCT-DETAILS  =============== */
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; 
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.product-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.product-details button {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+#product-desc {
+    width: 50%;
+    text-align: center;
+}
+/* =============== REGISTER  =============== */
