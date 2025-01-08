@@ -83,10 +83,49 @@
 .product-details button {
     background-color: green;
     color: white;
+    padding: 10px;
+    margin: 5px;
     cursor: pointer;
+    width: 80px;
+    max-height: 80%;
 }
 #product-desc {
     width: 50%;
     text-align: center;
 }
 /* =============== REGISTER  =============== */
+.register-wrapper {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    background-color: rgb(255, 255, 255);
+    /* width: 50%; */
+    max-width: 30%;
+    margin: 0 auto; /* This will centralize the div horizontally */
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 70%;
+    margin: 0 auto; 
+}
+#register-button {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    width: 80px;
+    max-height: 80%;
+}
+.register-form input {
+    width: 70%;
+    padding: 10px;
+    margin: 5px;
+}

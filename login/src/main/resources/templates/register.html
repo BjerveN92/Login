@@ -7,29 +7,32 @@
     <link rel="stylesheet" href="/css/styling.css">
 </head>
 <body>
+    <!-- hämtar headern ifrån index -->
+    <div th:insert="index :: header"></div>
+    <div class="register-wrapper">
+        <form th:action="@{/register}" th:object="${user}" method="post" class="register-form">
+            <h1>Registrera ny användare</h1>
+            <label for="firstname">Förnamn</label>
+            <input type="text" th:field="*{firstname}" id="firstname" placeholder="Förnamn" required>
     
-    <header>Logotype</header>
+            <label for="lastname">Efternamn</label>
+            <input type="text" th:field="*{lastname}" id="lastname" placeholder="Efternamn" required>
     
-    <form th:action="@{/register}" th:object="${user}" method="post">
-
-        <label for="firstname">Förnamn</label>
-        <input type="text" th:field="*{firstname}" id="firstname" placeholder="Förnamn" required>
-
-        <label for="lastname">Efternamn</label>
-        <input type="text" th:field="*{lastname}" id="lastname" placeholder="Efternamn" required>
-
-        <label for="email">E-Mail</label>
-        <input type="email" th:field="*{email}" id="email" placeholder="E-Mail" required>
-
-        <label for="username">Användarnamn</label>
-        <input type="text" th:field="*{username}" id="username" placeholder="Användarnamn" required>
-
-        <label for="password">Lösenord</label>
-        <input type="password" th:field="*{password}" id="password" placeholder="Lösenord" required>
-        
-        <button type="submit">Registrera</button>
-
-    </form>
+            <label for="email">E-Mail</label>
+            <input type="email" th:field="*{email}" id="email" placeholder="E-Mail" required>
+    
+            <label for="username">Användarnamn</label>
+            <input type="text" th:field="*{username}" id="username" placeholder="Användarnamn" required>
+    
+            <label for="password">Lösenord</label>
+            <input type="password" th:field="*{password}" id="password" placeholder="Lösenord" required>
+            
+            <button type="submit" id="register-button">Registrera</button>
+    
+        </form>
+        <a th:href="@{/}" class="go-back-button"><button>Tillbaka</button></a>
+    </div>
+    
     
 </body>
 </html>
