@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- header med knappar -->
     <header>
         <h3>Logotype + en navbar med Login/Logout samt registrera ny användare</h3>
         <nav>
@@ -16,14 +16,16 @@
             
         </nav>
     </header>
-    
+    <!--  -->
     <div>
         <h1>produkter</h1>
-        <div th:each="product : ${products}">
-            <h2 th:text="${product.name}"></h2>
-            <img th:src="${product.imageUrl}" alt="Produktbild">
-            <p th:text="${product.price} +' SEK'"></p>
-        </div>
+            <!-- product-card -->
+            <div th:each="product : ${products}">
+                <h2 th:text="${product.name}"></h2>
+                <img th:src="${product.imageUrl}" alt="Produktbild">
+                <p th:text="${product.price} +' SEK'"></p>
+                <a th:href="@{/product/{id}(id=${product.id})}"><button>Mer info</button></a>
+            </div>
     </div>
     
 </body>
