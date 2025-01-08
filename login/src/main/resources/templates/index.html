@@ -18,6 +18,13 @@
                 <button sec:authorize="isAuthenticated()">Logga ut</button>
             </a>
             
+            <a th:href="@{/register}" method="get">
+                <button>Register</button>
+            </a>
+
+            <a th:href="@{/myorder}" method="get">
+                <button sec:authorize="isAuthenticated()">My Order</button>
+            </a>
             
         </nav>
     </header>
