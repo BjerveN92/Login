@@ -1,12 +1,11 @@
 /* =============== HEADER =============== */
-
 .header {
     padding: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 35%;
-    background-color: rosybrown;
+    background-color: rgb(171, 169, 75);
     margin: 0 auto; 
     border: 1px solid #000000;
     border-radius: 10px;
@@ -118,7 +117,7 @@
 /* =============== REGISTER  =============== */
 .register-wrapper {
     background-color: rgb(255, 255, 255);
-    max-width: 30%;
+    max-width: 35%;
     margin: 0 auto; /* This will centralize the div horizontally */
     border: 1px solid #000000;
     border-radius: 10px;
@@ -147,4 +146,15 @@
     width: 70%;
     padding: 10px;
     margin: 5px;
+}
+
+/* =============== FONTS  =============== */
+
+.header h1, 
+.product-card h2, 
+.product-details h2, 
+.register-form h1 {
+    font-family: "Chelsea Market", serif;
+    font-weight: 400;
+    font-style: normal;
 }
